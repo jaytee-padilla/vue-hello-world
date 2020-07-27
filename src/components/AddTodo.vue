@@ -1,15 +1,13 @@
 <template>
   <div>
     <form @submit="addTodo">
-      <input type="text" name="title" placeholder="Add Todo..." autofocus v-model="title" />
+      <input type="text" name="title" placeholder="Add Todo..." autofocus autocomplete="off" v-model="title" />
       <input type="submit" value="Submit" class="btn" />
     </form>
   </div>
 </template>
 
 <script>
-import { v4 as uuidv4 } from 'uuid';
-
 export default {
   name: "AddTodo",
   data() {
@@ -22,7 +20,6 @@ export default {
       event.preventDefault();
 
       const newTodo = {
-        id: uuidv4(),
         title: this.title,
         completed: false
       }
